@@ -32,11 +32,12 @@ import 'package:jaspr_website/app.dart' as _app;
 ServerOptions get defaultServerOptions => ServerOptions(
   clientId: 'main.client.dart.js',
   clients: {
+    _header.Header: ClientTarget<_header.Header>('header'),
     _about.About: ClientTarget<_about.About>('about'),
     _home.Home: ClientTarget<_home.Home>('home'),
   },
   styles: () => [
-    ..._header.Header.styles,
+    ..._header.HeaderState.styles,
     ..._about.About.styles,
     ..._home.HomeState.styles,
     ..._speaker.Speaker.styles,
