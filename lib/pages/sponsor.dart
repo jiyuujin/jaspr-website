@@ -1,32 +1,36 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import 'package:website_2026/generated/l10n.dart';
+
 class Sponsor extends StatelessComponent {
   const Sponsor({super.key});
 
   @override
   Component build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return section(id: 'sponsor', [
       div(classes: 'container', [
-        h2([Component.text('Sponsors')]),
-        p(classes: 'section-subtitle', [Component.text('本イベントを支えてくださっている企業・コミュニティの皆様です。')]),
+        h2([Component.text(l10n.sponsor)]),
+        // p(classes: 'section-subtitle', [Component.text(l10n.sponsorSubtitle)]]),
 
-        h3(classes: 'tier-title platinum', [Component.text('Platinum Sponsors')]),
-        div(classes: 'sponsor-flex platinum-tier', [
-          _sponsorLogo('Google Cloud', 'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg', true),
-          _sponsorLogo('GitHub', 'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg', true),
-        ]),
+        // h3(classes: 'tier-title platinum', [Component.text(l10n.platinumSponsors)]),
+        // div(classes: 'sponsor-flex platinum-tier', [
+        //   _sponsorLogo('Google Cloud', 'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg', true),
+        //   _sponsorLogo('GitHub', 'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg', true),
+        // ]),
 
-        h3(classes: 'tier-title gold', [Component.text('Gold Sponsors')]),
-        div(classes: 'sponsor-flex gold-tier', [
-          _sponsorLogo('Flutter', 'https://storage.googleapis.com/cms-storage-bucket/0dbfcc7459443574c3d2.png', false),
-          _sponsorLogo('Firebase', 'https://firebase.google.com/downloads/brand-guidelines/SVG/logo-standard.svg', false),
-          _sponsorLogo('Dart', 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Dart-logo.png', false),
-        ]),
+        // h3(classes: 'tier-title gold', [Component.text(l10n.goldSponsors)]),
+        // div(classes: 'sponsor-flex gold-tier', [
+        //   _sponsorLogo('Flutter', 'https://storage.googleapis.com/cms-storage-bucket/0dbfcc7459443574c3d2.png', false),
+        //   _sponsorLogo('Firebase', 'https://firebase.google.com/downloads/brand-guidelines/SVG/logo-standard.svg', false),
+        //   _sponsorLogo('Dart', 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Dart-logo.png', false),
+        // ]),
         
         div(classes: 'sponsor-cta', [
-          p([Component.text('スポンサー募集中！あなたの企業もテックコミュニティを応援しませんか？')]),
-          a(href: 'mailto:sponsor@example.com', classes: 'btn-link', [Component.text('スポンサー資料を請求する →')]),
+          p([Component.text(l10n.sponsorRecruitment)]),
+          a(href: 'https://flutterkaigi-2026-sponsorship.pages.dev/', classes: 'btn-link', [Component.text(l10n.requestSponsorshipMaterials)]),
         ]),
       ]),
     ]);

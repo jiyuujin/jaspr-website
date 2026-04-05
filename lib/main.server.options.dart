@@ -5,13 +5,13 @@
 // Generated with jaspr_builder
 
 import 'package:jaspr/server.dart';
-import 'package:jaspr_website/components/header.dart' as _header;
-import 'package:jaspr_website/pages/about.dart' as _about;
-import 'package:jaspr_website/pages/home.dart' as _home;
-import 'package:jaspr_website/pages/speaker.dart' as _speaker;
-import 'package:jaspr_website/pages/sponsor.dart' as _sponsor;
-import 'package:jaspr_website/pages/venue.dart' as _venue;
-import 'package:jaspr_website/app.dart' as _app;
+import 'package:website_2026/components/header.dart' as _header;
+import 'package:website_2026/pages/about.dart' as _about;
+import 'package:website_2026/pages/home.dart' as _home;
+import 'package:website_2026/pages/speaker.dart' as _speaker;
+import 'package:website_2026/pages/sponsor.dart' as _sponsor;
+import 'package:website_2026/pages/venue.dart' as _venue;
+import 'package:website_2026/app.dart' as _app;
 
 /// Default [ServerOptions] for use with your Jaspr project.
 ///
@@ -31,18 +31,14 @@ import 'package:jaspr_website/app.dart' as _app;
 /// ```
 ServerOptions get defaultServerOptions => ServerOptions(
   clientId: 'main.client.dart.js',
-  clients: {
-    _header.Header: ClientTarget<_header.Header>('header'),
-    _about.About: ClientTarget<_about.About>('about'),
-    _home.Home: ClientTarget<_home.Home>('home'),
-  },
+  clients: {_header.Header: ClientTarget<_header.Header>('header')},
   styles: () => [
     ..._header.HeaderState.styles,
     ..._about.About.styles,
-    ..._home.HomeState.styles,
+    ..._home.Home.styles,
     ..._speaker.Speaker.styles,
     ..._sponsor.Sponsor.styles,
     ..._venue.Venue.styles,
-    ..._app.App.styles,
+    ..._app.AppShell.styles,
   ],
 );

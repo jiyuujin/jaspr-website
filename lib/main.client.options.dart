@@ -6,9 +6,7 @@
 
 import 'package:jaspr/client.dart';
 
-import 'package:jaspr_website/components/header.dart' deferred as _header;
-import 'package:jaspr_website/pages/about.dart' deferred as _about;
-import 'package:jaspr_website/pages/home.dart' deferred as _home;
+import 'package:website_2026/components/header.dart' deferred as _header;
 
 /// Default [ClientOptions] for use with your Jaspr project.
 ///
@@ -32,7 +30,5 @@ ClientOptions get defaultClientOptions => ClientOptions(
       (p) => _header.Header(),
       loader: _header.loadLibrary,
     ),
-    'about': ClientLoader((p) => _about.About(), loader: _about.loadLibrary),
-    'home': ClientLoader((p) => _home.Home(), loader: _home.loadLibrary),
   },
 );

@@ -1,16 +1,35 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
+import 'package:jaspr_localizations/jaspr_localizations.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 
-import 'package:jaspr_website/components/header.dart';
-import 'package:jaspr_website/pages/about.dart';
-import 'package:jaspr_website/pages/home.dart';
-import 'package:jaspr_website/pages/speaker.dart';
-import 'package:jaspr_website/pages/sponsor.dart';
-import 'package:jaspr_website/pages/venue.dart';
+import 'package:website_2026/components/header.dart';
+import 'package:website_2026/generated/l10n.dart';
+import 'package:website_2026/pages/about.dart';
+import 'package:website_2026/pages/home.dart';
+import 'package:website_2026/pages/speaker.dart';
+import 'package:website_2026/pages/sponsor.dart';
+import 'package:website_2026/pages/venue.dart';
 
 class App extends StatelessComponent {
   const App({super.key});
+
+@override
+Component build(BuildContext context) {
+    return JasprLocalizations(
+      supportedLocales: [
+        Locale('en', 'US'),
+        Locale('ja', 'JP'),
+      ],
+      initialLocale: getCurrentLocale(),
+      delegates: [AppLocalizations.delegate],
+      builder: (context, locale) => const AppShell(),
+    );
+  }
+}
+
+class AppShell extends StatelessComponent {
+  const AppShell({super.key});
 
   @override
   Component build(BuildContext context) {
@@ -35,7 +54,13 @@ class App extends StatelessComponent {
 
       footer([
         div(classes: 'container', [
-          p([Component.text('© 2026 Jaspr Conference. Built with Jaspr.')]),
+          p([
+            Component.text('© 2021-2026 FlutterKaigi Executive Committee. Built with Jaspr.'),
+          ]),
+          p([
+            Component.text('Flutter and the related logo are trademarks of Google LLC. FlutterKaigi is not affiliated with or otherwise sponsored by Google LLC.'),
+            Component.text('The Flutter name and the Flutter logo are trademarks of Google LLC.'),
+          ]),
         ]),
       ]),
     ]);
