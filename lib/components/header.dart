@@ -16,7 +16,7 @@ class HeaderState extends State<Header> {
   Component build(BuildContext context) {
     return header([
       div(classes: 'header-logo', [
-        a(href: '#home', [Component.text('CONF 2026')]),
+        a(href: '#home', [Component.text('FlutterKaigi 2026')]),
       ]),
       button(
         classes: 'menu-toggle ${_isMenuOpen ? 'open' : ''}',

@@ -1,37 +1,41 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import 'package:website_2026/generated/l10n.dart';
+
 class Venue extends StatelessComponent {
   const Venue({super.key});
 
   @override
   Component build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return section(id: 'venue', [
       div(classes: 'container', [
-        h2([Component.text('Venue')]),
+        h2([Component.text(l10n.venue)]),
         
         div(classes: 'venue-grid', [
           div(classes: 'venue-map', [
             RawText('''
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.828030380878!2d139.7649361!3d35.6812362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x44383474e03364d!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1641234567890" 
-                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.838689334204!2d139.7530694757867!3d35.65634577259518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b30efb679bd%3A0xecfd0339e177450c!2z5rWc5p2-55S644Kz44Oz44OZ44Oz44K344On44Oz44Ob44O844Or!5e0!3m2!1sja!2sjp!4v1775286449655!5m2!1sja!2sjp"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
               </iframe>
             '''),
           ]),
 
           div(classes: 'venue-info', [
-            h3([Component.text('2026 テックホール')]),
-            p(classes: 'address', [Component.text('〒100-0005 東京都千代田区丸の内１丁目')]),
+            h3([Component.text(l10n.venueName)]),
+            p(classes: 'address', [Component.text(l10n.venueAddress)]),
             
             div(classes: 'access-methods', [
               div(classes: 'access-item', [
                 span(classes: 'icon', [Component.text('🚆')]),
-                p([Component.text('JR「東京駅」丸の内中央口より徒歩5分')]),
+                p([Component.text(l10n.accessByTrain)]),
               ]),
               div(classes: 'access-item', [
                 span(classes: 'icon', [Component.text('🚇')]),
-                p([Component.text('東京メトロ丸ノ内線「東京駅」直結')]),
+                p([Component.text(l10n.accessBySubway)]),
               ]),
             ]),
             
@@ -39,7 +43,7 @@ class Venue extends StatelessComponent {
               href: 'https://maps.app.goo.gl/xxxx', 
               target: Target.blank, 
               classes: 'map-link', 
-              [Component.text('Google Maps で開く →')]
+              [Component.text(l10n.openInGoogleMaps)]
             ),
           ]),
         ]),

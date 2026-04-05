@@ -1,4 +1,4 @@
-name: jaspr_website
+name: website_2026
 description: A new Jaspr project
 version: 0.0.1
 
@@ -7,6 +7,7 @@ environment:
 
 dependencies:
   jaspr: ^0.22.4
+  jaspr_localizations: ^1.0.0+beta.4
   jaspr_router: ^0.8.1
 
 dev_dependencies:

@@ -1,4 +1,4 @@
-import 'package:jaspr_website/constants/theme.dart';
+import 'package:website_2026/constants/theme.dart';
 
 abstract class DesignTokens {
   static final primary = primaryColor;

@@ -1,60 +1,54 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
-@client
+import 'package:website_2026/generated/l10n.dart';
+
 class About extends StatelessComponent {
   const About({super.key});
 
   @override
   Component build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return section(id: 'about', [
       div(classes: 'container', [
-        h2([Component.text('About & Community')]),
-        p(classes: 'section-subtitle', [Component.text('Jaspr Conference は、日本における Dart/Jaspr の普及を支援しています。')]),
+        h2([Component.text(l10n.aboutAndCommunity)]),
+        p(classes: 'section-subtitle', [Component.text(l10n.conferenceDescription)]),
 
         div(classes: 'about-grid', [
           div(classes: 'about-card highlight', [
-            h3([Component.text('🏛️ Organizer')]),
-            p([Component.text('Jaspr Conference')]),
+            h3([Component.text(l10n.organizer)]),
+            p([Component.text(l10n.conference)]),
             p(classes: 'description', [
-              Component.text('私たちは、Dart によるフルスタック Web 開発の可能性を広めるために活動している有志団体です。'),
+              Component.text(l10n.organizerDescription),
             ]),
           ]),
 
           _aboutItem(
-            '📖 Documentation', 
-            '公式ドキュメントで Jaspr の基礎から応用までを学べます。',
-            'https://docs.jaspr.site'
-          ),
-
-          _aboutItem(
-            '💬 Community', 
-            '困ったときは Discord サーバーへ。日本の開発者も参加しています。',
-            'https://discord.gg/XGXrGEk4c6'
-          ),
-
-          _aboutItem(
-            '📦 Ecosystem', 
-            'Router や Riverpod など、Jaspr 専用パッケージが続々と登場中。',
-            'https://pub.dev/packages?q=topic%3Ajaspr'
+            context,
+            l10n.communityTitle, 
+            l10n.communityDescription,
+            'https://docs.google.com/forms/d/e/1FAIpQLSe6AhOMKNBHBOWtoT60f1MNNC2sk1RJ3K7sU_NsIJ1dVT2Q7A/viewform?usp=dialog'
           ),
         ]),
 
         div(classes: 'support-banner', [
-          p([Component.text('Jaspr を気に入ったら、ぜひ GitHub でスターを付けて応援してください！ ⭐️')]),
-          a(href: 'https://github.com/schultek/jaspr', target: Target.blank, classes: 'btn-outline', [
-            Component.text('GitHub を見る'),
+          p([Component.text(l10n.supportBannerText)]),
+          a(href: 'https://github.com/FlutterKaigi', target: Target.blank, classes: 'btn-outline', [
+            Component.text(l10n.viewGitHubRepo),
           ]),
         ]),
       ]),
     ]);
   }
 
-  Component _aboutItem(String title, String desc, String url) {
+  Component _aboutItem(BuildContext context, String title, String desc, String url) {
+    final l10n = AppLocalizations.of(context)!;
+
     return div(classes: 'about-card', [
       h3([Component.text(title)]),
       p(classes: 'description', [Component.text(desc)]),
-      a(href: url, target: Target.blank, classes: 'text-link', [Component.text('詳しく見る →')]),
+      a(href: url, target: Target.blank, classes: 'text-link', [Component.text(l10n.learnMore)]),
     ]);
   }
 
